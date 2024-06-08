@@ -1,6 +1,8 @@
-import {FaSearch} from 'react-icons/fa';
-import { Link } from 'react-router-dom'; 
-import {useSelector} from 'react-redux';
+import { FaSearch } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+
 
 
 export default function Header() {
@@ -33,5 +35,5 @@ export default function Header() {
         </div>
 
     </header>
-  )
+  );
 }
