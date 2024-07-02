@@ -243,112 +243,123 @@ export default function CreateListing() {
               <span>Offer</span>
             </div>
           </div>
-          <div className='flex flex-wrap gap-6'>
-
-          <div className='flex items-center gap-4'>
-
-            <div className='flex items-center gap-2'>
-              <input
-                type='number'
-                id='floors'
-                min='1'
-                max='20'
-                required
-                className='p-3 border border-gray-300 rounded-lg'
-                onChange={handleChange}
-                value={formData.floors}
-              />
-              <p>Floors</p>
-            </div>
-
-            {formData.floors>1 && (
-                          <div className='flex items-center gap-2'>
-                          <input
-                            type='number'
-                            id='floorNumber'
-                            min='1'
-                            max={formData.floors}
-                            required
-                            className='p-3 border border-gray-300 rounded-lg'
-                            onChange={handleChange}
-                            value={formData.floorNumber}
-                          />
-                          <p>Floor Number</p>
-                        </div>
-
-            )}
 
 
+    <div className='flex flex-wrap gap-6'>
 
-          </div>
+      <div className='flex items-center gap-4'>
 
-            <div className='flex items-center gap-2'>
-              <input
-                type='number'
-                id='bedrooms'
-                min='1'
-                max='10'
-                required
-                className='p-3 border border-gray-300 rounded-lg'
-                onChange={handleChange}
-                value={formData.bedrooms}
-              />
-              <p>Beds</p>
-            </div>
-            <div className='flex items-center gap-2'>
-              <input
-                type='number'
-                id='bathrooms'
-                min='1'
-                max='10'
-                required
-                className='p-3 border border-gray-300 rounded-lg'
-                onChange={handleChange}
-                value={formData.bathrooms}
-              />
-              <p>Baths</p>
-            </div>
-            <div className='flex items-center gap-2'>
-              <input
-                type='number'
-                id='regularPrice'
-                min='5000'
-                max='10000000'
-                required
-                className='p-3 border border-gray-300 rounded-lg'
-                onChange={handleChange}
-                value={formData.regularPrice}
-              />
-              <div className='flex flex-col items-center'>
-                <p>Regular Price</p>
-                {formData.type === 'rent' && (
-                  <span className='text-xs'>(LKR / month)</span>
-                )}
-              </div>
-            </div>
-            {formData.offer && (
-              <div className='flex items-center gap-2'>
-                <input
-                  type='number'
-                  id='discountPrice'
-                  min='0'
-                  max='10000000'
-                  required
-                  className='p-3 border border-gray-300 rounded-lg'
-                  onChange={handleChange}
-                  value={formData.discountPrice}
-                />
-                <div className='flex flex-col items-center'>
-                  <p>Discounted Price</p>
+      <div className='flex items-center gap-2'>
+        <input
+          type='number'
+          id='floors'
+          min='1'
+          max='20'
+          required
+          className='p-3 border border-gray-300 rounded-lg'
+          onChange={handleChange}
+          value={formData.floors}
+        />
+        <p>Floors</p>
+      </div>
 
-                  {formData.type === 'rent' && (
-                    <span className='text-xs'>(LKR / month)</span>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
+    {formData.floors > 1 && (
+      <div className='flex items-center gap-2'>
+        <input
+          type='number'
+          id='floorNumber'
+         min='1'
+         max={formData.floors}
+         required
+         className='p-3 border border-gray-300 rounded-lg'
+         onChange={handleChange}
+         value={formData.floorNumber}
+       />
+       <p>Floor Number</p>
+     </div>
+   )}
+
+  </div>
+
+<div className='flex flex-col gap-4'>
+
+  <div className='flex items-center gap-6'>
+    <div className='flex items-center gap-2'>
+      <input
+        type='number'
+        id='bedrooms'
+        min='1'
+        max='10'
+        required
+        className='p-3 border border-gray-300 rounded-lg'
+        onChange={handleChange}
+        value={formData.bedrooms}
+      />
+      <p>Beds</p>
+    </div>
+
+    <div className='flex items-center gap-2'>
+      <input
+        type='number'
+        id='bathrooms'
+        min='1'
+        max='10'
+        required
+        className='p-3 border border-gray-300 rounded-lg'
+        onChange={handleChange}
+        value={formData.bathrooms}
+      />
+      <p>Baths</p>
+    </div>
+  </div>
+
+  <div className='flex items-center gap-2'>
+    <input
+      type='number'
+      id='regularPrice'
+      min='5000'
+      max='10000000'
+      required
+      className='p-3 border border-gray-300 rounded-lg'
+      onChange={handleChange}
+      value={formData.regularPrice}
+    />
+    <div className='flex flex-col items-center'>
+      <p>Regular Price</p>
+      {formData.type === 'rent' && (
+        <span className='text-xs'>(LKR / month)</span>
+      )}
+    </div>
+  </div>
+
+  {formData.offer && (
+    <div className='flex items-center gap-2'>
+      <input
+        type='number'
+        id='discountPrice'
+        min='0'
+        max='10000000'
+        required
+        className='p-3 border border-gray-300 rounded-lg'
+        onChange={handleChange}
+        value={formData.discountPrice}
+      />
+      <div className='flex flex-col items-center'>
+        <p>Discounted Price</p>
+        {formData.type === 'rent' && (
+          <span className='text-xs'>(LKR / month)</span>
+        )}
+      </div>
+    </div>
+  )}
+
+</div>
+
+</div>
+
         </div>
+
+
         <div className='flex flex-col flex-1 gap-4'>
           <p className='font-semibold'>
             Images:
