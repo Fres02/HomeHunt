@@ -14,6 +14,13 @@ const listingSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+
+      propertyType: {
+        type: String,
+        required: true,
+        enum: ['House', 'Flat', 'Apartment', 'Villa', 'Other'],
+      },
+      
       regularPrice: {
         type: Number,
         required: true,
@@ -51,11 +58,6 @@ const listingSchema = new mongoose.Schema(
         required: true,
       },
       type: {
-        type: String,
-        required: true,
-      },
-
-      propertyType: {
         type: String,
         required: true,
       },
