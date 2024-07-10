@@ -47,32 +47,45 @@ export default function SignUp() {
   console.log(formData)
 
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-
-      <h1 className  = 'text-3xl text-center font-semibold my-7'>Welcome to HomeHunt!</h1>
-
-      <form onSubmit={handleSubmit} className = 'flex flex-col gap-4'>
-
-        <input type ="text" placeholder = "Username" className='border p-3 rounded-lg' id="username" onChange={handleChange}/>
-        <input type ="email" placeholder = "Email address" className='border p-3 rounded-lg' id="email" onChange={handleChange}/>
-        <input type ="password" placeholder = "Password" className='border p-3 rounded-lg' id="password" onChange={handleChange}/>
-
-        <button disabled ={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
-        {loading ? 'Loading...' : 'Sign Up'}
-      </button>
-      <OAuth/>
-      </form>
-
-      <div className='flex gap-2 mt-5'>
-        <p>Have an Account?</p>
-        <Link to={"/sign-in"}>
-          <span className ='text-blue-700 '>Sign in </span>
-        </Link>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/background1.jpg')` }}>
+      <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full'>
+        <h1 className='text-2xl font-bold text-gray-900 text-center mb-8'>Welcome to HomeHunt!</h1>
+  
+        <form onSubmit={handleSubmit} className='space-y-6'>
+          <div>
+            <label htmlFor="username" className='block text-sm font-medium text-gray-700'>Username</label>
+            <input type="text" placeholder="Username" className='mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500' id="username" onChange={handleChange}/>
+          </div>
+          <div>
+            <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email address</label>
+            <input type="email" placeholder="Email address" className='mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500' id="email" onChange={handleChange}/>
+          </div>
+          <div>
+            <label htmlFor="password" className='block text-sm font-medium text-gray-700'>Password</label>
+            <input type="password" placeholder="Password" className='mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500' id="password" onChange={handleChange}/>
+          </div>
+  
+          <div className='flex space-x-4 items-center'>
+            <button disabled={loading} className='flex-1 bg-indigo-600 text-white py-3 rounded-md uppercase font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none'>
+              {loading ? 'Loading...' : 'Sign Up'}
+            </button>
+            <div className='flex-1'>
+              <OAuth className='w-full '/>
+            </div>
+          </div>
+        </form>
+  
+        <div className='flex justify-center items-center mt-6'>
+          <p className='text-sm text-gray-600'>Have an Account?</p>
+          <Link to="/sign-in" className='text-sm text-indigo-600 hover:text-indigo-700 ml-1'>
+            Sign in
+          </Link>
+        </div>
+  
+        {error && <p className='text-red-500 mt-4 text-center'>{error}</p>}
       </div>
-
-      {error && <p className='text-red-500 mt-5'>{error}</p>}
-
     </div>
+  );
+  
 
-  )
 }
