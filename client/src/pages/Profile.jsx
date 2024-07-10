@@ -184,6 +184,8 @@ export default function Profile() {
 
       
       {userListings && userListings.length >0 &&
+    
+
       userListings.map((listing) =>(
         <div key={listing._id} className='border rounded-lg p-3 flex justify-between items-center gap-4'>
           <Link to={`/listing/${listing._id}`}><img src={listing.imageUrls[0]} alt='listing cover' className='h-16 w-16 object-contain'/></Link>
@@ -197,9 +199,7 @@ export default function Profile() {
         </div>
         
       )
-      
-      )
-      }
+      )}
 
       
     </div>
