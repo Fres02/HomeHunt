@@ -154,74 +154,112 @@ export default function Profile() {
 
 
   return (
-    <div className = 'p-3 max-w-lg mx-auto' >
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
-      
-      <form onSubmit={handleSubmit} className = 'flex flex-col gap-4'>
-        <input onChange={(e)=> setFile(e.target.files[0])} type = "file" ref={fileRef} hidden accept='image/*'/>
-        <img onClick = {()=>fileRef.current.click()}src = {formData.avatar || currentUser.avatar} alt = "profile" className = 'rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2'/>
-        <p className='text-sm self-center'> {fileUploadError ? 
-        ( <span className='text-red-700'>
-              Image uploading failed
-            </span>
-          ) : filePerc > 0 && filePerc < 100 ? (
-            <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
-          ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image successfully uploaded!</span>
-          ) : (
-            ''
-          )}
-        </p>
-        <input type='text' placeholder='username' defaultValue={currentUser.username} id='username' className='border p-3 rounded-lg' onChange = {handleChange}/>
-        <input type='email' placeholder='email' id='email' defaultValue={currentUser.email} className='border p-3 rounded-lg' onChange = {handleChange}/>  
-        <input type='password' placeholder='password' id='password' className='border p-3 rounded-lg' onChange = {handleChange}/>  
-        <button disabled={loading} className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80' >
-          {loading ? 'Loading...' : 'Update'}
-        </button>  
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/background1.jpg')` }}>
+      <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full my-8'>
+        <h1 className='text-2xl font-bold text-gray-900 text-center mb-8'>Profile</h1>
         
-        <Link
-          className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
-          to={'/create-listing'}
-        >
-          Add New Property
-        </Link>
-
-      </form>
-
-      <div className='flex justify-between mt-5'>
-        <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'> Delete account </span>
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'> Sign out </span>
+        <form onSubmit={handleSubmit} className='space-y-6'>
+          <input onChange={(e) => setFile(e.target.files[0])} type="file" ref={fileRef} hidden accept='image/*' />
+          <div className="flex flex-col items-center">
+            <img
+              onClick={() => fileRef.current.click()}
+              src={formData.avatar || currentUser.avatar}
+              alt="profile"
+              className="rounded-full h-24 w-24 object-cover cursor-pointer mt-2"
+            />
+            <p className="text-sm mt-2">
+              {fileUploadError ? (
+                <span className="text-red-700">Image uploading failed</span>
+              ) : filePerc > 0 && filePerc < 100 ? (
+                <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
+              ) : filePerc === 100 ? (
+                <span className="text-green-700">Image successfully uploaded!</span>
+              ) : (
+                ''
+              )}
+            </p>
+          </div>
+  
+          <div>
+            <label htmlFor="username" className='block text-sm font-medium text-gray-700'>Username</label>
+            <input
+              type="text"
+              placeholder="Username"
+              defaultValue={currentUser.username}
+              id="username"
+              className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email address</label>
+            <input
+              type="email"
+              placeholder="Email address"
+              defaultValue={currentUser.email}
+              id="email"
+              className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="password" className='block text-sm font-medium text-gray-700'>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              className="mt-1 block w-full border border-gray-300 p-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              onChange={handleChange}
+            />
+          </div>
+  
+          <div className="flex space-x-4 items-center">
+            <button
+              disabled={loading}
+              className="flex-1 bg-indigo-600 text-white py-3 rounded-md font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none"
+            >
+              {loading ? 'Loading...' : 'Update'}
+            </button>
+  
+            <Link
+              className="flex-1 bg-green-600 text-white py-3 rounded-md font-medium text-center hover:bg-green-700 focus:outline-none"
+              to="/create-listing"
+            >
+              Add New Property
+            </Link>
+          </div>
+        </form>
+  
+        <div className="flex justify-between mt-5">
+          <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete account</span>
+          <span onClick={handleSignOut} className="text-red-700 cursor-pointer">Sign out</span>
+        </div>
+  
+        <p className="text-red-700 mt-5">{error ? error : ''}</p>
+        <p className="text-green-700 mt-5">{updateSuccess ? 'User is updated successfully!' : ''}</p>
+  
+        <button onClick={handleShowListings} className="text-green-700 w-full text-xl font-semibold">My Properties</button>
+        <p className="text-red-700 mt-5">{showListingsError ? 'Error Showing Your Properties' : ''}</p>
+  
+        {userListings && userListings.length > 0 && userListings.map((listing) => (
+          <div key={listing._id} className="border rounded-lg p-3 flex justify-between items-center gap-4 mt-4">
+            <Link to={`/listing/${listing._id}`}>
+              <img src={listing.imageUrls[0]} alt='listing cover' className="h-16 w-16 object-contain" />
+            </Link>
+            <Link className="text-slate-700 font-semibold hover:underline truncate flex-1" to={`/listing/${listing._id}`}>
+              <p>{listing.name}</p>
+            </Link>
+            <div className="flex flex-col items-center">
+              <button onClick={() => handleListingDelete(listing._id)} className="text-red-700 uppercase">Delete</button>
+              <button className="text-green-700 uppercase">Edit</button>
+            </div>
+          </div>
+        ))}
       </div>
-
-      <p className='text-red-700 mt-5'>{error ? error : ''}</p>
-      <p className='text-green-700 mt-5'>
-        {updateSuccess ? 'User is updated successfully!' : ''}
-      </p> 
-
-      <button onClick={handleShowListings} className='text-green-700 w-full text-xl font-semibold'>My Properties</button>
-      <p className='text-red-700 mt-5'>{showListingsError ? 'Error Showing Your Properties' : ''}</p>
-
-      
-      {userListings && userListings.length >0 &&
-    
-
-      userListings.map((listing) =>(
-        <div key={listing._id} className='border rounded-lg p-3 flex justify-between items-center gap-4'>
-          <Link to={`/listing/${listing._id}`}><img src={listing.imageUrls[0]} alt='listing cover' className='h-16 w-16 object-contain'/></Link>
-          <Link className='text-slate-700 font-semibold  hover:underline truncate flex-1'to={`/listing/${listing._id}`}><p>{listing.name}</p></Link>
-        
-        <div className='flex flex-col item-center'>
-          <button onClick={() => handleListingDelete(listing._id)} className='text-red-700 uppercase'>Delete</button>
-          <button className='text-green-700 uppercase'>Edit</button>
-        </div>
-
-        </div>
-        
-      )
-      )}
-
-      
     </div>
-  )
+  );
+
 }
  
