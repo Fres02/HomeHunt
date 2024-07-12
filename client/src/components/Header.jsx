@@ -2,7 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-
+import logo from '../assets/images/logo.png';
 
 
 export default function Header() {
@@ -10,21 +10,18 @@ export default function Header() {
     
     return (
 
-  <header className='bg-gray shadow-md'>
+  <header className='bg-white shadow-md'>
     <div className='flex justify-between items-center max-w-6xl mx-auto p-4'>
 
       <Link to='/'>
-        <h1 className='font-bold text-lg sm:text-2xl flex items-center'>
-          <span className='text-indigo-500'>Home</span>
-          <span className='text-indigo-700'>Hunt</span>
-        </h1>
+      <img src={logo} alt="HomeHunt Logo" className="h-14 sm:h-16" />
       </Link>
 
       <form className='relative'>
         <input
           type="text"
           placeholder="Search..."
-          className='bg-gray-100 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 w-32 sm:w-64 px-4 py-2 rounded-full transition duration-200'
+          className='bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 w-32 sm:w-64 px-4 py-2 rounded-full transition duration-200'
         />
         <button type="submit" className='absolute right-2 top-1/2 transform -translate-y-1/2 text-indigo-600'>
           <FaSearch />
