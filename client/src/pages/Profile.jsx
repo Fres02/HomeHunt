@@ -154,7 +154,7 @@ export default function Profile() {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/background1.jpg')` }}>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/imageback.jpg')` }}>
       <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full my-8'>
         <h1 className='text-2xl font-bold text-gray-900 text-center mb-8'>Profile</h1>
         
@@ -224,7 +224,7 @@ export default function Profile() {
             </button>
   
             <Link
-              className="flex-1 bg-green-600 text-white py-3 rounded-md font-medium text-center hover:bg-green-700 focus:outline-none"
+              className="flex-1 bg-blue-500 text-white py-3 rounded-md font-medium text-center hover:bg-blue-600 focus:outline-none"
               to="/create-listing"
             >
               Add New Property
@@ -240,7 +240,7 @@ export default function Profile() {
         <p className="text-red-700 mt-5">{error ? error : ''}</p>
         <p className="text-green-700 mt-5">{updateSuccess ? 'User is updated successfully!' : ''}</p>
   
-        <button onClick={handleShowListings} className="text-green-700 w-full text-xl font-semibold">My Properties</button>
+        <button onClick={handleShowListings} className="text-blue-700 w-full text-xl font-semibold">My Properties</button>
         <p className="text-red-700 mt-5">{showListingsError ? 'Error Showing Your Properties' : ''}</p>
   
         {userListings && userListings.length > 0 && userListings.map((listing) => (
