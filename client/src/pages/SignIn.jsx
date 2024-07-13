@@ -44,7 +44,7 @@ export default function SignIn() {
   };
    
   return (
-<div className='min-h-screen flex items-center justify-center bg-cover bg-center'style={{ backgroundImage: `url('/background1.jpg')` }}>
+<div className='min-h-screen flex items-center justify-center bg-cover bg-center'style={{ backgroundImage: `url('/background11.png')` }}>
   <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full'>
     <h1 className='text-2xl font-bold text-gray-900 text-center mb-8'>Welcome Back to HomeHunt!</h1>
 

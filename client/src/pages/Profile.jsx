@@ -154,7 +154,7 @@ export default function Profile() {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/imageback.jpg')` }}>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url('/background.jpg')` }}>
       <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full my-8'>
         <h1 className='text-2xl font-bold text-gray-900 text-center mb-8'>Profile</h1>
         

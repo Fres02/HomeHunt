@@ -2,7 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/1.png';
 
 
 export default function Header() {

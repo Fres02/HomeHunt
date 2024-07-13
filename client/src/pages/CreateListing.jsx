@@ -156,7 +156,7 @@ export default function CreateListing() {
   };
   
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center py-10" style={{ backgroundImage: `url('/imageback.jpg')` }}>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center py-10" style={{ backgroundImage: `url('/background.jpg')` }}>
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full mx-4">
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">Add New Property</h1>
         
