@@ -163,7 +163,7 @@ export default function CreateListing() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-4 flex-1">
             <input type="text" onChange={handleChange} value={formData.name} placeholder="Title" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="name" minLength={5} maxLength={62} required />
-            <input type="text" onChange={handleChange} value={formData.description} placeholder="Description" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="description" minLength={10} maxLength={200} required />
+            <input type="text" onChange={handleChange} value={formData.description} placeholder="Description" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="description" minLength={10} maxLength={500} required />
             <input type="text" onChange={handleChange} value={formData.address} placeholder="Address" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="address" required />
 
             <select id="propertyType" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onChange={handleChange} value={formData.propertyType}>
