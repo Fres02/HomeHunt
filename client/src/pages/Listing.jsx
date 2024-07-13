@@ -84,11 +84,14 @@ return (
         )}
         <div className='max-w-4xl mx-auto p-6 my-7 bg-white shadow-2xl rounded-lg'>
           <p className='text-4xl font-semibold mb-6 text-indigo-600'>
-            {listing.name} - LKR{' '}
+            {listing.name} - 
+            <span className='text-green-500'>
+            LKR{' '}
             {listing.offer
               ? listing.discountPrice.toLocaleString('en-US')
               : listing.regularPrice.toLocaleString('en-US')}
             {listing.type === 'rent' && ' / month'}
+            </span>
           </p>
           <p className='flex items-center mb-6 gap-2 text-slate-600 text-lg'>
             <FaMapMarkerAlt className='text-blue-700' />

@@ -10,25 +10,24 @@ export default function Header() {
     
     return (
 
-  <header className='bg-white shadow-md'>
+  <header className='bg-white'>
     <div className='flex justify-between items-center max-w-6xl mx-auto p-4'>
 
       <Link to='/'>
       <img src={logo} alt="HomeHunt Logo" className="h-14 sm:h-16" />
       </Link>
 
-      <form className='relative'>
-        <input
-          type="text"
-          placeholder="Search..."
-          className='bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 w-32 sm:w-64 px-4 py-2 rounded-full transition duration-200'
-        />
-        <button type="submit" className='absolute right-2 top-1/2 transform -translate-y-1/2 text-indigo-600'>
-          <FaSearch />
-        </button>
-      </form>
+
 
       <ul className='flex gap-6 items-center'>
+        <li>      
+          <form className='relative'>
+            <input type="text" placeholder="Search..." className='bg-blue-50 focus:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-20 sm:w-40 px-4 py-2 rounded-full transition duration-200'/>
+            <button type="submit" className='absolute right-2 top-1/2 transform -translate-y-1/2 text-indigo-600'>
+            <FaSearch />
+            </button>
+          </form>
+        </li>
         <Link to='/'><li className='hidden sm:inline text-indigo-700 hover:text-indigo-900 transition duration-200'>Home</li></Link>
         <Link to='/about'><li className='hidden sm:inline text-indigo-700 hover:text-indigo-900 transition duration-200'>About</li></Link>
         <Link to='/profile'>

@@ -7,6 +7,7 @@ import About from './pages/About';
 import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import Listing from './pages/Listing';
 
@@ -26,5 +27,7 @@ export default function App() {
     </Route>
 
   </Routes>
+
+  <Footer/>
   </BrowserRouter>;
 }
