@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
 import {FaBath,FaBed,FaChair,FaMapMarkedAlt,FaMapMarkerAlt,FaParking,FaShare,FaBuilding} from 'react-icons/fa';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
 
 
 export default function Listing() {
@@ -17,6 +18,16 @@ export default function Listing() {
   const [contact, setContact] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
+  const [open, setOpen] = useState(false);
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -65,6 +76,7 @@ return (
             </SwiperSlide>
           ))}
         </Swiper>
+        {/*
         <div className='fixed top-[13%] bottom-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-white shadow-lg cursor-pointer'>
           <FaShare
             className='text-slate-500'
@@ -81,11 +93,11 @@ return (
           <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-white shadow-lg p-2'>
             Link copied!
           </p>
-        )}
+        )}   */}
         <div className='max-w-4xl mx-auto p-6 my-7 bg-white shadow-2xl rounded-lg'>
-          <p className='text-4xl font-semibold mb-6 text-indigo-600'>
+          <p className='text-4xl font-semibold mb-6 text-black'>
             {listing.name} - 
-            <span className='text-green-500'>
+            <span className='text-gray-500'>
             LKR{' '}
             {listing.offer
               ? listing.discountPrice.toLocaleString('en-US')
@@ -103,7 +115,7 @@ return (
   </p>
   {listing.offer && (
     <p className='bg-blue-600 text-white text-center py-2 px-4 rounded-full shadow-md'>
-      ${+listing.regularPrice - +listing.discountPrice} OFF
+      LKR {+listing.regularPrice - +listing.discountPrice} OFF
     </p>
   )}
 </div>
@@ -159,6 +171,36 @@ return (
               {listing.furnished ? 'Furnished' : 'Unfurnished'}
             </li>
           </ul>
+
+          <button 
+              onClick={handleClickOpen}
+              className='bg-blue-500 text-white py-2 px-4 rounded-full shadow-md '
+            >
+              Show Contact Info
+            </button>
+
+            {/* Dialog Component */}
+            <Dialog open={open} onClose={handleClose} className="rounded-lg shadow-lg">
+              <DialogTitle className="bg-blue-500 text-white text-center mt-5">Contact Information</DialogTitle>
+              <DialogContent className="p-6">
+                <p className="text-lg mb-4 mt-5">
+                  <span className="font-semibold text-blue-600">Email:</span> {listing.contactEmail}
+                </p>
+                <p className="text-lg">
+                  <span className="font-semibold text-blue-600">Phone:</span> +{listing.telephone}
+                </p>
+              </DialogContent>
+              <DialogActions className="p-4">
+                <Button 
+                  onClick={handleClose} 
+                  className="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-4 py-2"
+                >
+                  Close
+                </Button>
+              </DialogActions>
+            </Dialog>
+
+
 
         </div>
       </div>

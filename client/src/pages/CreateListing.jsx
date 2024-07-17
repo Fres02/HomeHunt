@@ -3,6 +3,8 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import { app } from '../firebase';
 import {useSelector} from 'react-redux' ;
 import { useNavigate } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 export default function CreateListing() {
 
@@ -26,6 +28,8 @@ export default function CreateListing() {
     offer: false,
     parking:false,
     furnished:false,
+    telephone:'',
+    contactEmail:'',
 
   });
 
@@ -118,6 +122,13 @@ export default function CreateListing() {
       setFormData({
         ...formData,
         propertyType: e.target.value,
+      });
+    }
+
+    if (e.target.id === 'contactEmail') {
+      setFormData({
+        ...formData,
+        contactEmail: e.target.value,
       });
     }
 
@@ -262,13 +273,42 @@ export default function CreateListing() {
       </div>
     ))}
 
+    <div className="flex flex-col gap-4">
+      <h2 className="text-xl font-semibold">Contact Details</h2>
+        <div className="flex flex-col gap-4">
+          <div className="w-full">
+            <PhoneInput
+              country={'lk'}
+              value={formData.telephone}
+              onChange={telephone => setFormData({ ...formData, telephone })}
+              inputClass="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+              inputExtraProps={{
+                name: 'telephone',
+                autoFocus: true,
+              }}
+            />
+          </div>
+          <div style={{ width: '49.5%' }}>
+            <input 
+              type="email" 
+              onChange={handleChange} 
+              value={formData.contactEmail} 
+              placeholder="Email Address" 
+              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full" 
+            id="contactEmail" 
+            />
+          </div>
+        </div>
+    </div>
+
+
     <button disabled={loading || uploading} className="p-3 bg-blue-400 text-white rounded-md uppercase hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-80">{loading ? 'Adding...' : 'Add Property'}</button>
     {error && <p className="text-red-700 text-sm">{error}</p>}
   </div>
 </form>
 
-      </div>
-    </div>
+</div>
+</div>
   );
   
 }

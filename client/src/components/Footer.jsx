@@ -14,7 +14,7 @@ const Footer = () => {
         },
         {
             title: 'Contacts',
-            items: ['HomeHunt (Pvt) Ltd', 'D.S. Senanayake Mawatha, Borella, Colombo-08', 'Sri Lanka', '0112 699 822', 'info@homehunt.lk']
+            items: ['HomeHunt (Pvt) Ltd,', 'D.S. Senanayake Mawatha, Borella, Colombo-08,', 'Sri Lanka.', '0112 699 822', 'info@homehunt.lk']
         },
 
     ];
@@ -89,9 +89,11 @@ const Footer = () => {
                             placeholder='Enter your email address'
                             className='w-full sm:w-auto p-2 rounded-md mb-3 sm:mb-0 sm:mr-2 bg-gray-700 border border-gray-600 text-gray-200 focus:outline-none focus:border-gray-500'
                         />
+                        <Link to='/'>
                         <button className='w-full sm:w-auto p-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white'>
                             Subscribe
                         </button>
+                        </Link>
                     </form>
                 </div>
             </div>
