@@ -218,13 +218,13 @@ export default function Profile() {
           <div className="flex space-x-4 items-center">
             <button
               disabled={loading}
-              className="flex-1 bg-indigo-600 text-white py-3 rounded-md font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none"
+              className="flex-1 bg-indigo-600 text-white py-3 rounded-full font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none"
             >
               {loading ? 'Loading...' : 'Update'}
             </button>
   
             <Link
-              className="flex-1 bg-blue-500 text-white py-3 rounded-md font-medium text-center hover:bg-blue-600 focus:outline-none"
+              className="flex-1 bg-blue-500 text-white py-3 rounded-full font-medium text-center hover:bg-blue-600 focus:outline-none"
               to="/create-listing"
             >
               Add New Property
@@ -251,7 +251,7 @@ export default function Profile() {
             <Link className="text-slate-700 font-semibold hover:underline truncate flex-1" to={`/listing/${listing._id}`}>
               <p>{listing.name}</p>
             </Link>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center rounded-lg">
               <button onClick={() => handleListingDelete(listing._id)} className="text-red-700 uppercase">Delete</button>
               <Link to={`/update-listing/${listing._id}`}>
               <button className="text-green-700 uppercase">Edit</button>

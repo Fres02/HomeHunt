@@ -59,7 +59,7 @@ export default function SignIn() {
       </div>
 
       <div className='flex space-x-4'>
-        <button disabled={loading} className='flex-1 bg-indigo-600 text-white py-2 rounded-lg uppercase font-medium hover:bg-indigo-700 disabled:opacity-50'>
+        <button disabled={loading} className='flex-1 bg-indigo-600 text-white py-2 rounded-full uppercase font-medium hover:bg-indigo-700 disabled:opacity-50'>
           {loading ? 'Loading...' : 'Log In'}
         </button>
         <div className='flex-1'>

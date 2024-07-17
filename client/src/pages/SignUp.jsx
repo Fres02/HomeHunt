@@ -66,7 +66,7 @@ export default function SignUp() {
           </div>
   
           <div className='flex space-x-4 items-center'>
-            <button disabled={loading} className='flex-1 bg-indigo-600 text-white py-3 rounded-md uppercase font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none'>
+            <button disabled={loading} className='flex-1 bg-indigo-600 text-white py-3 rounded-full uppercase font-medium hover:bg-indigo-700 disabled:opacity-50 focus:outline-none'>
               {loading ? 'Loading...' : 'Sign Up'}
             </button>
             <div className='flex-1'>

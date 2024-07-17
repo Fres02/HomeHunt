@@ -302,7 +302,15 @@ export default function CreateListing() {
     </div>
 
 
-    <button disabled={loading || uploading} className="p-3 bg-blue-400 text-white rounded-md uppercase hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-80">{loading ? 'Adding...' : 'Add Property'}</button>
+    <button 
+  disabled={loading || uploading} 
+  className={`bg-blue-500 text-white py-2 px-4 rounded-full shadow-md ${
+    loading || uploading ? 'opacity-80 cursor-not-allowed' : 'hover:bg-blue-600'
+  } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+>
+  {loading ? 'Adding...' : 'Add Property'}
+</button>
+
     {error && <p className="text-red-700 text-sm">{error}</p>}
   </div>
 </form>

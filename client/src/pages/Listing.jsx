@@ -180,7 +180,7 @@ return (
             </button>
 
             {/* Dialog Component */}
-            <Dialog open={open} onClose={handleClose} className="rounded-lg shadow-lg">
+            <Dialog open={open} onClose={handleClose} className="rounded-full shadow-lg">
               <DialogTitle className="bg-blue-500 text-white text-center mt-5">Contact Information</DialogTitle>
               <DialogContent className="p-6">
                 <p className="text-lg mb-4 mt-5">
