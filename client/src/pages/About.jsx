@@ -1,6 +1,12 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function About() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
+
   return (
     <div>
       {/* Hero Section */}
@@ -36,22 +42,21 @@ export default function About() {
             Meet Our Team
           </h2>
           <div className='text-center'>
-  {/* Group Photo */}
-  <img
-    src='group_photo.jpg'
-    alt='Our Team'
-    className='w-full h-auto object-cover rounded-lg shadow-lg mb-6'
-  />
-  <div className='bg-white p-6 rounded-lg shadow-lg mx-auto max-w-lg'>
-    <h3 className='text-xl font-semibold text-slate-700 mb-2'>
-      The HomeHunt Team
-    </h3>
-    <p className='text-gray-600'>
-      Our team is made up of passionate professionals dedicated to helping you find your perfect home. With years of experience in real estate, we're here to guide you every step of the way and make your home search as smooth as possible.
-    </p>
-  </div>
-</div>
-
+            {/* Group Photo */}
+            <img
+              src='group_photo.jpg'
+              alt='Our Team'
+              className='w-full h-auto object-cover rounded-lg shadow-lg mb-6'
+            />
+            <div className='bg-white p-6 rounded-lg shadow-lg mx-auto max-w-lg'>
+              <h3 className='text-xl font-semibold text-slate-700 mb-2'>
+                The HomeHunt Team
+              </h3>
+              <p className='text-gray-600'>
+                Our team is made up of passionate professionals dedicated to helping you find your perfect home. With years of experience in real estate, we're here to guide you every step of the way and make your home search as smooth as possible.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -61,14 +66,39 @@ export default function About() {
         <p className='text-lg mb-6'>
           Our team is here to assist you every step of the way. Get in touch with us to start your home search today!
         </p>
-<button className='bg-blue-800 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-900 transition-colors duration-300'>
-  
-Contact Us
-</button>
-          
-
-
+        <button 
+          className='bg-blue-800 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-900 transition-colors duration-300'
+          onClick={openDialog}
+        >
+          Contact Us
+        </button>
       </div>
+
+      {/* Contact Us Dialog */}
+      {isDialogOpen && (
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50'>
+          <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full'>
+            <h2 className='text-xl font-bold text-slate-700 mb-4'>Contact Us</h2>
+            <p className='text-gray-700 mb-2'>
+              <strong>HomeHunt (Pvt) Ltd</strong><br />
+              D.S. Senanayake Mawatha, Borella, Colombo-08,<br />
+              Sri Lanka.
+            </p>
+            <p className='text-gray-700 mb-2'>
+              <strong>Phone:</strong> 0112 699 822
+            </p>
+            <p className='text-gray-700 mb-4'>
+              <strong>Email:</strong> <a href='mailto:info@homehunt.lk' className='text-blue-700 hover:underline'>info@homehunt.lk</a>
+            </p>
+            <button 
+              className='bg-blue-800 text-white py-2 px-4 rounded-full hover:bg-blue-900'
+              onClick={closeDialog}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
