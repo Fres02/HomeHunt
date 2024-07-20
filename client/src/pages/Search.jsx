@@ -191,7 +191,7 @@ return (
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="font-semibold text-slate-700">Amenities:</label>
+          <label className="font-semibold text-slate-700">Facilities:</label>
           <div className="flex gap-4">
             <label className="flex items-center gap-2">
               <input
@@ -221,7 +221,7 @@ return (
             onChange={handleChange}
             defaultValue="created_at_desc"
             id="sort_order"
-            className="border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded-full p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="regularPrice_desc">Price high to low</option>
             <option value="regularPrice_asc">Price low to high</option>

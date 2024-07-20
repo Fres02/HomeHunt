@@ -49,7 +49,7 @@ export default function ListingItem({ listing }) {
                 )}
                 {(listing.propertyType === 'Flat' || listing.propertyType === 'Apartment') && listing.floors > 1 && listing.floorNumber && (
                   <div>
-                    Floor: {listing.floorNumber}
+                    floor no : {listing.floorNumber}
                   </div>
                 )}
               </div>

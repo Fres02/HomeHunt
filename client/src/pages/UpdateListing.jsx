@@ -190,11 +190,11 @@ export default function CreateListing() {
         
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="flex flex-col gap-4 flex-1">
-            <input type="text" onChange={handleChange} value={formData.name} placeholder="Title" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="name" minLength={5} maxLength={62} required />
-            <input type="text" onChange={handleChange} value={formData.description} placeholder="Description" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="description" minLength={10} maxLength={200} required />
-            <input type="text" onChange={handleChange} value={formData.address} placeholder="Address" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="address" required />
+            <input type="text" onChange={handleChange} value={formData.name} placeholder="Title" className="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="name" minLength={5} maxLength={62} required />
+            <input type="text" onChange={handleChange} value={formData.description} placeholder="Description" className="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="description" minLength={10} maxLength={200} required />
+            <input type="text" onChange={handleChange} value={formData.address} placeholder="Address" className="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" id="address" required />
 
-            <select id="propertyType" className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onChange={handleChange} value={formData.propertyType}>
+            <select id="propertyType" className="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onChange={handleChange} value={formData.propertyType}>
               <option value="House">House</option>
               <option value="Flat">Flat</option>
               <option value="Apartment">Apartment</option>
@@ -228,13 +228,13 @@ export default function CreateListing() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-14">
               <div className="flex items-center gap-2">
-                <input type="number" onChange={handleChange} value={formData.floors} id="floors" min="1" max="50" required className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                <input type="number" onChange={handleChange} value={formData.floors} id="floors" min="1" max="50" required className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                 <span>Floors</span>
               </div>
 
               {formData.floors > 1 && (formData.propertyType === 'Flat' || formData.propertyType === 'Apartment') && (
               <div className="flex items-center gap-2">
-                <input type="number" id="floorNumber" min="1" max={formData.floors} required className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onChange={handleChange} value={formData.floorNumber} />
+                <input type="number" id="floorNumber" min="1" max={formData.floors} required className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" onChange={handleChange} value={formData.floorNumber} />
                 <span>Floor Number</span>
               </div>
               )}
@@ -242,18 +242,18 @@ export default function CreateListing() {
 
           <div className="flex items-center gap-7">
             <div className="flex items-center gap-2">
-              <input type="number" onChange={handleChange} value={formData.bedrooms} id="bedrooms" min="1" max="20" required className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+              <input type="number" onChange={handleChange} value={formData.bedrooms} id="bedrooms" min="1" max="20" required className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
               <span>Bedrooms</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <input type="number" onChange={handleChange} value={formData.bathrooms} id="bathrooms" min="1" max="20" required className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+              <input type="number" onChange={handleChange} value={formData.bathrooms} id="bathrooms" min="1" max="20" required className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
               <span>Bathrooms</span>
             </div>
           </div>
 
           <div className="flex items-center gap-7">
-            <input type="number" onChange={handleChange} value={formData.regularPrice} id="regularPrice" min="5000" className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="number" onChange={handleChange} value={formData.regularPrice} id="regularPrice" min="5000" className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
             <div className="flex flex-col items-center">
               <span>Regular Price</span>
             {formData.type === 'rent' && <span className="text-xs text-gray-600">(LKR / month)</span>}
@@ -262,7 +262,7 @@ export default function CreateListing() {
 
           {formData.offer && (
           <div className="flex items-center gap-7">
-            <input type="number" onChange={handleChange} value={formData.discountPrice} id="discountPrice" min="0" className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <input type="number" onChange={handleChange} value={formData.discountPrice} id="discountPrice" min="0" className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
               <div className="flex flex-col items-center">
                 <span>Discount Price</span>
                 {formData.type === 'rent' && <span className="text-xs text-gray-600">(LKR / month)</span>}
@@ -277,16 +277,16 @@ export default function CreateListing() {
       <span className="font-normal text-gray-600 ml-2">The first image will be the cover (max-6)</span>
     </p>
     <div className="flex gap-4">
-      <input onChange={(e) => setFiles(e.target.files)} className="p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full" type="file" id="images" accept="image/*" multiple />
-      <button type="button" onClick={handleImageSubmit} disabled={uploading} className="p-3 text-green-600 border border-green-600 rounded-md uppercase hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-80">{uploading ? 'Uploading...' : 'Upload'}</button>
+      <input onChange={(e) => setFiles(e.target.files)} className="p-3 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full" type="file" id="images" accept="image/*" multiple />
+      <button type="button" onClick={handleImageSubmit} disabled={uploading} className="p-3 text-green-600 border border-green-600 rounded-full uppercase hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-80">{uploading ? 'Uploading...' : 'Upload'}</button>
     </div>
 
     <p className="text-red-600 text-sm">{imageUploadError && imageUploadError}</p>
 
     {formData.imageUrls.length > 0 && formData.imageUrls.map((url, index) => (
       <div key={url} className="flex justify-between p-3 border items-center">
-        <img src={url} alt="listing image" className="w-20 h-20 object-contain rounded-md" />
-        <button type="button" onClick={() => handleRemoveImage(index)} className="p-3 text-red-700 rounded-md uppercase hover:opacity-75">Delete</button>
+        <img src={url} alt="property image" className="w-20 h-20 object-contain rounded-md" />
+        <button type="button" onClick={() => handleRemoveImage(index)} className="p-3 text-red-700 rounded-full uppercase hover:opacity-75">Delete</button>
       </div>
     ))}
 
@@ -298,7 +298,7 @@ export default function CreateListing() {
               country={'lk'}
               value={formData.telephone}
               onChange={telephone => setFormData({ ...formData, telephone })}
-              inputClass="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+              inputClass="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
               inputExtraProps={{
                 name: 'telephone',
                 autoFocus: true,
@@ -311,7 +311,7 @@ export default function CreateListing() {
               onChange={handleChange} 
               value={formData.contactEmail} 
               placeholder="Email Address" 
-              className="border p-3 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full" 
+              className="border p-3 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full" 
             id="contactEmail" 
             />
           </div>
