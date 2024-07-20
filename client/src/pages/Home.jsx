@@ -49,6 +49,20 @@ export default function Home() {
     fetchOfferListings();
   }, []);
 
+  const images = [
+    '/photo1.jpg',
+    '/photo2.jpg',
+    '/photo3.jpg',
+     '/photo4.jpg'
+  ];
+
+  const texts = [
+    'Discover your dream home with ease and precision.',
+    'Explore a wide range of properties tailored to your needs.',
+    'Find the perfect place to live with our expert guidance.',
+    'Let us help you navigate the housing market with ease and confidence.'
+  ];
+  
   return (
     <div>
       {/* Top Section */}
@@ -71,30 +85,33 @@ export default function Home() {
   </Link>
 </div>
 
-
-
       {/* Swiper Section */}
       <div className='relative'>
-        <Swiper navigation modules={[Navigation]} className='mySwiper'>
-          {offerListings &&
-            offerListings.length > 0 &&
-            offerListings.map((listing) => (
-              <SwiperSlide key={listing._id}>
-                <div
-                  style={{
-                    background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                    backgroundSize: 'cover',
-                  }}
-                  className='h-[500px] lg:h-[600px] flex items-center justify-center'
-                >
-                  <div className='bg-black bg-opacity-50 h-full w-full flex items-center justify-center'>
-                    <h2 className='text-white text-3xl lg:text-5xl font-bold'>{listing.name}</h2>
-                  </div>
+      <Swiper navigation modules={[Navigation]} className='mySwiper'>
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
+            <div
+              style={{
+                background: `url(${img}) center no-repeat`,
+                backgroundSize: 'cover',
+              }}
+              className='h-[500px] lg:h-[600px] flex items-center justify-center'
+            >
+              <div className='bg-black bg-opacity-50 h-full w-full flex items-center justify-center'>
+                <div className='text-center p-6'>
+                  <p className='text-white text-xl lg:text-3xl font-semibold mb-2'>
+                    {texts[index]}
+                  </p>
+                  <p className='text-white font-semibold text-sm lg:text-xl'>
+                    Explore our diverse collection and find the best property for you.
+                  </p>
                 </div>
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
 
       {/* Listing Results for Offer, Sale, and Rent */}
       <div className='max-w-6xl mx-auto p-4 lg:p-10 flex flex-col gap-12 my-10'>
