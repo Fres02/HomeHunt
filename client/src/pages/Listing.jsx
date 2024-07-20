@@ -180,25 +180,35 @@ return (
             </button>
 
             {/* Dialog Component */}
-            <Dialog open={open} onClose={handleClose} className="rounded-full shadow-lg">
-              <DialogTitle className="bg-blue-500 text-white text-center mt-5">Contact Information</DialogTitle>
-              <DialogContent className="p-6">
-                <p className="text-lg mb-4 mt-5">
-                  <span className="font-semibold text-blue-600">Email:</span> {listing.contactEmail}
-                </p>
-                <p className="text-lg">
-                  <span className="font-semibold text-blue-600">Phone:</span> +{listing.telephone}
-                </p>
-              </DialogContent>
-              <DialogActions className="p-4">
-                <Button 
-                  onClick={handleClose} 
-                  className="bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-4 py-2"
-                >
-                  Close
-                </Button>
-              </DialogActions>
-            </Dialog>
+            <Dialog
+      open={open}
+      onClose={handleClose}
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+    >
+      <div className='bg-white p-8 rounded-lg shadow-lg max-w-md w-full'>
+        <DialogTitle className="text-xl font-extrabold text-slate-700 mb-4">
+          <strong>Contact Information</strong>
+        </DialogTitle>
+        <DialogContent className="p-0">
+          <div>
+            <p className="text-gray-700 mb-2">
+              <strong>Phone:</strong>  +{listing.telephone}
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Email:</strong> <a href={`mailto:${listing.contactEmail}`} className='text-blue-700 hover:underline'>{listing.contactEmail}</a>
+            </p>
+          </div>
+        </DialogContent>
+        <DialogActions className="p-4">
+        <button 
+              className='bg-blue-800 text-white py-2 px-4 rounded-full hover:bg-blue-900'
+              onClick={handleClose}
+            >
+              Close
+            </button>
+        </DialogActions>
+      </div>
+    </Dialog>
 
 
 
