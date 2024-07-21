@@ -134,15 +134,15 @@ export default function Search() {
               <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">Type:</label>
                 <select
-  id="type"
-  onChange={handleChange}
-  value={sidebardata.type} // Ensure the value is correctly set
-  className="w-full border rounded-full py-2 px-4 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
->
-  <option value="all">All</option>
-  <option value="rent">Rent</option>
-  <option value="sale">Sale</option>
-</select>
+                  id="type"
+                  onChange={handleChange}
+                  value={sidebardata.type} // Ensure the value is correctly set
+                  className="w-full border rounded-full py-2 px-4 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="all">All</option>
+                  <option value="rent">Rent</option>
+                  <option value="sale">Sale</option>
+                </select>
               </div>
               <div className="flex-1">
                 <label className="block text-sm font-medium text-gray-700 mb-1">Sort:</label>
