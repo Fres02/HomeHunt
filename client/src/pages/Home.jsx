@@ -167,20 +167,19 @@ export default function Home() {
         {saleListings && saleListings.length > 0 && (
           <div>
 
-
+            
 <div className='flex flex-col my-3 space-y-2'>
-  <h2 className='text-lg font-medium text-blue-600'>Discover Your Dream Home!</h2>
-  <div className='flex justify-between items-center'>
-    <h2 className='text-2xl font-bold text-blue-800'>Recent Places for Sale</h2>
-    <Link
-      to={'/search?type=sale'}
-      className='bg-gradient-to-r from-blue-500 to-blue-700 font-semibold text-white py-2 px-6 rounded-full shadow-lg hover:from-blue-600 hover:to-blue-800 transition-colors duration-300 text-sm'
-    >
-      Show more places for sale
-    </Link>
-  </div>
-</div>
-
+        <h2 className='text-lg font-medium text-blue-600'>Your Dream Home is One Click Away!</h2>
+          <div className='flex justify-between items-center'>
+          <h2 className='text-2xl font-bold text-blue-800'>Recent Places for Sale</h2>
+          <Link
+            to={'/search?type=sale'}
+            className='bg-gradient-to-r from-blue-500 to-blue-700 font-semibold text-white py-2 px-4 rounded-full shadow-lg hover:from-blue-600 hover:to-blue-800 transition-colors duration-300 text-sm'
+            >
+            Show more places for sale
+          </Link>
+          </div>
+      </div>
 
             <div className='flex flex-wrap gap-4'>
               {saleListings.map((listing) => (
