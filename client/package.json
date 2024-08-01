@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "nodemon api/index.js",
+    "build": " npm install && npm install --prefix client && npm run build --prefix client",
+    "start": "node api/index.js"
+    
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
